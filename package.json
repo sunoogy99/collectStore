@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "run.bat"
+    "start": "exec\\run.bat"
   },
   "keywords": [],
   "author": "",

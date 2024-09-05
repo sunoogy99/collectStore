@@ -3,7 +3,14 @@
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import fs from 'fs';
+import path from 'path';
 import readline from 'readline';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config();
 
@@ -13,7 +20,8 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-const locationFile = 'location.json'; // 저장된 위치 파일
+const outputDir = path.join(__dirname, '../output'); // output 디렉토리 경로 설정
+const locationFile = path.join(outputDir, 'location.json'); // 저장된 위치 파일
 
 // 저장된 위치 파일을 읽어오는 함수
 function getLocation() {
@@ -95,7 +103,7 @@ rl.question('검색할 키워드를 입력하세요 (예: 카페): ', (query) =>
         if (places.length === 0) {
           console.log("결과가 없습니다.");
         } else {
-          const filename = 'places_data.csv';
+          const filename = path.join(outputDir, 'places_data.csv');
 
           // 기존 데이터를 읽어옴
           const existingData = getExistingData(filename);

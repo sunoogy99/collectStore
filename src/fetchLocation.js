@@ -3,7 +3,14 @@
 import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import fs from 'fs';
+import path from 'path';
 import readline from 'readline';
+
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 dotenv.config();
 
@@ -48,7 +55,13 @@ rl.question('검색하고 싶은 주소를 입력하세요: ', (myPlace) => {
         const lng = location.x;
         
         // JSON 파일로 저장
-        fs.writeFileSync('location.json', JSON.stringify({ lat, lng }), 'utf8');
+        const outputDir = path.join(__dirname, '../output');
+        if (!fs.existsSync(outputDir)) {
+          fs.mkdirSync(outputDir);
+        }
+
+        const locationPath = path.join(outputDir, 'location.json');
+        fs.writeFileSync(locationPath, JSON.stringify({ lat, lng }), 'utf8');
         console.log(`위도: ${lat}, 경도: ${lng} - location.json에 저장되었습니다.`);
         process.exit(0);  // 성공적으로 검색했으므로 종료 코드 0 반환
       }

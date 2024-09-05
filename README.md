@@ -11,8 +11,8 @@
 
 1. 프로젝트 클론
     ```bash
-    git clone [clone 주소]
-    cd [repo 주소]
+    git clone clone https://github.com/sunoogy99/collectStore.git
+    cd 프로젝트 디렉터리
     ```
 
 2. 의존성 설치
@@ -36,10 +36,12 @@
     
     - 주소 입력 결과 위도, 경도를 구해 location.json에 저장됩니다.
     
-    - 주소의 위도, 경도만 구하고자 하는 경우 location.json을 확인하면 됩니다.
+    - 주소의 위도, 경도만 구하고자 하는 경우 output/location.json을 확인하면 됩니다.
 
     - 검색 결과가 없는 경우 프로그램이 종료됩니다.
 
 3. 검색할 키워드를 입력합니다. (예: 카페)
     
     - 검색 결과 매장 이름, 주소, 위도, 경도가 csv 파일에 저장됩니다.
+
+    - csv 파일 저장 위치는 output 디렉터리입니다.
