@@ -1,0 +1,17 @@
+{
+  "name": "data_collect",
+  "version": "1.0.0",
+  "description": "Search for stores within a 1km radius and save them to a csv file.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "run.bat"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  }
+}
